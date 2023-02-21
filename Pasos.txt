@@ -8,3 +8,20 @@ al mismo nivel de estos subdirectorios.
 Para comenzar ahora sí, dentro del archivo index.ts, vamos a crear nuestro servidor, para ello 
 como ya tenemos la paquetería de express descargada, lo que haremos es importarla para nuestro archivo.
 
+Crearemos nuestra aplicacion llamando la funcion que hemos importado,
+después llamamos al método use de la app para dos cosas.... una de las
+cuales es que acepte código json en el cuerpo de los enpoints o peticiones. Poteriormente llamando a su método listen, asignado como
+primer parámetro el puerto de la aplicacion y de segundp, un callback
+solo para asegurarse que el servidor se encuentre corriendo sin problema alguno. Opcional que el servidor se encuentre de una funcion asincrona.
+
+Bien, el siguiente paso es crear una conexion, dentro de la carpeta de "db", hacemos un archivo llamado conection.ts de preferencia, en el vamos a importar la clase DataSource de typeorm, con el procedemos a crear la conexion y la exportamos por default. Después ya insertaremos las entidades en el arreglo de la propiedad entities.
+
+Para crear nuestras entidades, solo vamos a necesitar importar varios decoradores de typeorm, tales como Entity, y todas las variantes de columnas, hacemos uso del primer decorador y enseguida en la linea que sigue, exportamos la clase con todas las columnas definidas.
+
+Después de haber añadido las entidades a la fuente de datos, importamos nuestro DataSource al index para poder inicializarlo junto al servidor. 
+
+Ahora toca proceder a definir nuestras rutas, osea definir nuestros endpoints que servirán como el CRUD de alguna de nuestras tablas. 
+
+Para ello, lo primero es importar de express el Router, y guardar dicha llamada de función en una constante, ya con el router definido podemos hacer llamadas de cualquier método disponible como get, post, put, delete, etc.
+
+Para una mejor organización es recomendable poner en una carpeta controls los procesos principales que irán como callback en cada metodo que llamemos de nuestro Router.

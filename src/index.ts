@@ -1,6 +1,7 @@
 /********IMPORTS********/
 import express from 'express';
-
+import { dataSource } from './db/conection';
+import { usersRouter } from './routes';
 /**********************/
 const PORT = Number(process.env.PORT) || 8080;
 
@@ -15,8 +16,18 @@ const main = async () => {
   app.use(express.json());
   /*Para poder dar uso a nuestras rutas es de ingresarlas como parámetro de 
   app.use, también se puede nombrar, colocando un string como primer argumento*/
-  // app.use();
+  app.use('/users', usersRouter);
+  // app.use('/documents',  );
 
+
+  //Aquí colocaremos nuestra conexion para iniciarlo
+  dataSource.initialize()
+    .then(() => {
+      console.log('Initialized');
+    })
+    .catch((error) => {
+      console.log('Error during data source initializing', error);
+    });
 
 
   //Al final siempre se debe añadir el app.listen
