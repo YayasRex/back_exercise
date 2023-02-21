@@ -1,0 +1,10 @@
+Después de haber ya descargado las paqueterías y dependencias correspondientes
+es hora de definir la estructura que tendrán nuestros archivos.
+Como bien sabemos la mayoría del código que vamos a escribir o desarrollar, se va a situar 
+en un directorio principal llamado src y dentro de este contendrán otros más que dependiendo 
+cómo lo vamos a hacer, se pueden añadir más o se pueden aadir menos, acompañados de un index.ts 
+al mismo nivel de estos subdirectorios.
+
+Para comenzar ahora sí, dentro del archivo index.ts, vamos a crear nuestro servidor, para ello 
+como ya tenemos la paquetería de express descargada, lo que haremos es importarla para nuestro archivo.
+
